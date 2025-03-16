@@ -12,7 +12,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('MindCare Assistant')),
+      appBar: AppBar(title: Text('AI Healthcare Assistant')),
       body: Column(
         children: [
           Expanded(
@@ -51,9 +51,8 @@ class _ChatPageState extends State<ChatPage> {
 
     setState(() {
       _messages.add(ChatMessage(text: text, isUser: true));
-      // Mock bot response
       _messages.add(ChatMessage(
-        text: 'I understand you\'re feeling $text. Let me help you with that.',
+        text: 'Don\'t talk to be u stupid sohai',
         isUser: false,
       ));
     });
