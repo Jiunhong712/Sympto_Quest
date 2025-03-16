@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../rewards/rewards_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -64,6 +65,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Hi, John!'),
         actions: [
+          _PointsBadge(),
           IconButton(icon: Icon(Icons.notifications), onPressed: () {})
         ],
       ),
@@ -315,6 +317,28 @@ class ProgramDetailsPage extends StatelessWidget {
             child: Text(text, style: TextStyle(fontSize: 16)),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _PointsBadge extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(right: 12),
+      child: InkWell(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => RewardsPage()),
+        ),
+        child: Row(
+          children: [
+            Icon(Icons.stars, color: Colors.amber),
+            SizedBox(width: 4),
+            Text('150', style: TextStyle(fontSize: 16)),
+          ],
+        ),
       ),
     );
   }

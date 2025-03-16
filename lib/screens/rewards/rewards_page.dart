@@ -27,10 +27,13 @@ class _RewardsPageState extends State<RewardsPage> {
                   ElevatedButton(
                     onPressed: _checkedIn
                         ? null
-                        : () => setState(() {
+                        : () {
+                            setState(() {
                               _points += 10;
                               _checkedIn = true;
-                            }),
+                            });
+                            // Add logic to update points globally
+                          },
                     child: Text(_checkedIn ? 'Checked In!' : 'Daily Check-In'),
                   ),
                 ],

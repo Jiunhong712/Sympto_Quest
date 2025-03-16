@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class DiscoverPage extends StatelessWidget {
+  final String? filter;
+
+  DiscoverPage({this.filter});
+
   final List<Map<String, dynamic>> _clinics = [
     {'name': 'Sunway Medical', 'address': 'Petaling Jaya', 'sponsored': true},
     {
