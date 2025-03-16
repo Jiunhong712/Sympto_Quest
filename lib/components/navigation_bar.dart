@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/home/home_page.dart';
-import '../screens/chat/chat_page.dart';
+import '../screens/chat/chatbot_page.dart';
 import '../screens/rewards/rewards_page.dart';
 import '../screens/discover/discover_page.dart';
 
@@ -12,7 +11,6 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
-    HomePage(),
     ChatPage(),
     RewardsPage(),
     DiscoverPage(),
@@ -30,7 +28,6 @@ class _MainAppState extends State<MainApp> {
         currentIndex: _currentIndex,
         elevation: 8.0,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Rewards'),
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Discover'),
