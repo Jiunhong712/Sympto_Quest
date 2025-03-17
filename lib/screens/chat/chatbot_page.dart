@@ -5,6 +5,11 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 enum Mood { happy, excited, neutral, sad, anxious }
 
+const _primaryColor = Color(0xFFD00F00);
+const _backgroundColor = Color(0xFFFFD8D9);
+const _textPrimary = Color(0xFF43170B);
+const _textSecondary = Color(0xFF6B3C2C);
+
 class ChatPage extends StatefulWidget {
   @override
   _ChatPageState createState() => _ChatPageState();
@@ -286,7 +291,10 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AI Healthcare Assistant'),
+        title: Text('SymptoQuest Assistant',
+            style: TextStyle(color: Colors.white)),
+        backgroundColor: _primaryColor,
+        iconTheme: IconThemeData(color: Colors.white),
         actions: [
           _PointsBadge(points: _points),
         ],
@@ -303,25 +311,39 @@ class _ChatPageState extends State<ChatPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _textController,
-                    decoration: const InputDecoration(
-                      hintText: 'Type your message...',
-                      border: OutlineInputBorder(),
+            padding: EdgeInsets.all(8),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 4,
+                    offset: Offset(0, 2),
+                  )
+                ],
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _textController,
+                      decoration: InputDecoration(
+                        hintText: 'Type your message...',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                      ),
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: () => _sendMessage(_textController.text),
-                ),
-              ],
+                  IconButton(
+                    icon: Icon(Icons.send_rounded, color: _primaryColor),
+                    onPressed: () => _sendMessage(_textController.text),
+                  ),
+                ],
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -354,24 +376,43 @@ class ChatMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: Column(
         crossAxisAlignment:
             isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: isUser ? Colors.blue : Colors.grey[300],
-              borderRadius: BorderRadius.circular(16),
+              color: isUser ? _primaryColor : Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+                bottomLeft: isUser ? Radius.circular(20) : Radius.circular(4),
+                bottomRight: isUser ? Radius.circular(4) : Radius.circular(20),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 4,
+                  offset: Offset(0, 2),
+                )
+              ],
             ),
-            child: Text(text),
+            child: Text(
+              text,
+              style: TextStyle(
+                color: isUser ? Colors.white : _textPrimary,
+                fontSize: 16,
+              ),
+            ),
           ),
           if (showMoodButtons)
             Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              padding: EdgeInsets.only(top: 8),
+              child: Wrap(
+                spacing: 12,
+                runSpacing: 12,
                 children: [
                   _buildMoodButton('😊', 'Happy', Mood.happy),
                   _buildMoodButton('😃', 'Excited', Mood.excited),
@@ -383,16 +424,19 @@ class ChatMessage extends StatelessWidget {
             ),
           if (showOptions && recommendations != null)
             Padding(
-              padding: const EdgeInsets.only(top: 8),
+              padding: EdgeInsets.only(top: 8),
               child: Column(
                 children: recommendations!
                     .map((rec) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 4),
+                          padding: EdgeInsets.symmetric(vertical: 4),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue[100],
-                              foregroundColor: Colors.blue[800],
-                              minimumSize: const Size(double.infinity, 40),
+                              backgroundColor: _primaryColor,
+                              foregroundColor: Colors.white,
+                              minimumSize: Size(double.infinity, 48),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
                             ),
                             onPressed: () => onRecommendationTap?.call(rec),
                             child: Text(rec['title']!),
@@ -470,7 +514,7 @@ class ActivityDetailPage extends StatelessWidget {
           Expanded(
             child: YoutubePlayer(
               controller: YoutubePlayerController(
-                initialVideoId: videoId, // Use passed videoId
+                initialVideoId: videoId,
                 flags: const YoutubePlayerFlags(
                   autoPlay: true,
                   mute: false,
