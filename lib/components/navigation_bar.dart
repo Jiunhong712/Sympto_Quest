@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/chat/chatbot_page.dart';
-import '../screens/rewards/rewards_page.dart';
 import '../screens/discover/discover_page.dart';
+import '../screens/profile/profile_page.dart';
 
 class MainApp extends StatefulWidget {
   @override
@@ -12,8 +12,8 @@ class _MainAppState extends State<MainApp> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
     ChatPage(),
-    RewardsPage(),
     DiscoverPage(),
+    ProfilePage(),
   ];
 
   @override
@@ -29,8 +29,11 @@ class _MainAppState extends State<MainApp> {
         elevation: 8.0,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Rewards'),
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Discover'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Profile',
+          ),
         ],
         onTap: (index) => setState(() => _currentIndex = index),
       ),
