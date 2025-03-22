@@ -282,7 +282,7 @@ class _ChatPageState extends State<ChatPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => DiscoverPage(filter: filter),
+        builder: (context) => DiscoverPage(initialFilter: filter),
       ),
     );
   }
