@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import '../discover/discover_page.dart';
 import '../rewards/rewards_page.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart' as mobile;
+import 'package:youtube_player_iframe/youtube_player_iframe.dart' as web;
 
 enum Mood { happy, excited, neutral, sad, anxious }
 
@@ -512,16 +514,27 @@ class ActivityDetailPage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: YoutubePlayer(
-              controller: YoutubePlayerController(
-                initialVideoId: videoId,
-                flags: const YoutubePlayerFlags(
-                  autoPlay: true,
-                  mute: false,
-                ),
-              ),
-              showVideoProgressIndicator: true,
-            ),
+            child: kIsWeb
+                ? web.YoutubePlayer(
+                    controller: web.YoutubePlayerController.fromVideoId(
+                      videoId: videoId,
+                      autoPlay: true,
+                      params: const web.YoutubePlayerParams(
+                        showControls: true,
+                        showFullscreenButton: true,
+                      ),
+                    ),
+                  )
+                : mobile.YoutubePlayer(
+                    controller: mobile.YoutubePlayerController(
+                      initialVideoId: videoId,
+                      flags: const mobile.YoutubePlayerFlags(
+                        autoPlay: true,
+                        mute: false,
+                      ),
+                    ),
+                    showVideoProgressIndicator: true,
+                  ),
           ),
         ],
       ),
