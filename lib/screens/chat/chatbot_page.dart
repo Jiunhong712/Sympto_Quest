@@ -66,13 +66,14 @@ class _ChatPageState extends State<ChatPage> {
         recommendations = [
           {
             'title': 'Mindfulness Exercise',
-            'videoId': 'ssss7V1_eyA',
-            'description': "Just a simple description."
+            'videoId': 'ZToicYcHIOU',
+            'description':
+                "Tamara Levitt guides this 10 minute Daily Calm mindfulness meditation to powerfully restore and re-connect with the present."
           },
           {
             'title': 'Gratitude Journaling',
-            'videoId': 'WbHM_4rQmcw',
-            'description': "Just a simple description."
+            'videoId': 'sJHXyWDGD1U',
+            'description': "Gratitude Journal with Carrie Walker."
           },
         ];
         break;
@@ -81,13 +82,15 @@ class _ChatPageState extends State<ChatPage> {
         recommendations = [
           {
             'title': 'Energy Management',
-            'videoId': '1aYv2ZpTblk',
-            'description': "Just a simple description."
+            'videoId': 'gDgk7rsy2Ik',
+            'description':
+                "\"Most people are living at such a furious pace that they rarely stop to ask themselves what they stand for and who they want to be. As a consequence, they let external demands dictate their actions.” —Tony Schwartz"
           },
           {
             'title': 'Creative Activities',
-            'videoId': 'nqye02H_H6I',
-            'description': "Just a simple description."
+            'videoId': 'B8p1jQM0KjY',
+            'description':
+                "Do you want to add bright colors to your life? We are here to help you through this process. In our fresh huge compilation you will find incredible ideas and awesome crafting hacks. For example, we will show you how to decorate your stationary. For the first idea, you will need pompoms. Glue them to the cover of your notebook and voila, your rainbow notebook is ready! Keep watching our video and check out how to make a furry and multi-colored phone case. You will need wooden popsicle sticks and colorful threads. Stay with us and learn unexpected drawing techniques. You will definitely want to try them. "
           },
         ];
         break;
@@ -95,14 +98,14 @@ class _ChatPageState extends State<ChatPage> {
         response = "Let's find something interesting!";
         recommendations = [
           {
-            'title': 'Daily Check-in Guide',
-            'videoId': 'Hh5hZEvvJDg',
-            'description': "Just a simple description."
+            'title': 'Simple Video',
+            'videoId': '_1OfB3DGwpA',
+            'description': "hey wanna see a magic trick?"
           },
           {
             'title': 'New Hobbies',
-            'videoId': 'x8sSIZpm8ro',
-            'description': "Just a simple description."
+            'videoId': '4HT2zcDqM1Y',
+            'description': "50+ HOBBIES TO START IN 2025"
           },
         ];
         break;
@@ -111,13 +114,15 @@ class _ChatPageState extends State<ChatPage> {
         recommendations = [
           {
             'title': 'Comforting Playlist',
-            'videoId': '5qap5aO4i9A',
-            'description': "Just a simple description."
+            'videoId': 'yK2SIzlRWmM',
+            'description':
+                "Please know if you ever need a friend or someone to talk to Im here and I will be more then happy to talk to you."
           },
           {
-            'title': 'Self-Care Routine',
-            'videoId': 'mF2D9cT4uR4',
-            'description': "Just a simple description."
+            'title': 'Cheer-up',
+            'videoId': 'hBzP8MtJf04',
+            'description':
+                "I wanted to create a video encompassing everything I have learned/things that have helped me in the past year."
           },
         ];
         break;
@@ -126,13 +131,15 @@ class _ChatPageState extends State<ChatPage> {
         recommendations = [
           {
             'title': 'Breathing Exercise',
-            'videoId': 'tEm0XQO_-VM',
-            'description': "Just a simple description."
+            'videoId': 'LiUnFJ8P4gM',
+            'description':
+                "Enjoy deep relaxation and increase lung capacity with this ten minute version of the 4-7-8 breathing technique. The breaths gradually slow and extend to an ideal calming pace."
           },
           {
             'title': 'Grounding Techniques',
-            'videoId': 'Hw6LtF7WSjM',
-            'description': "Just a simple description."
+            'videoId': '1ao4xdDK9iE',
+            'description':
+                "A simple grounding exercise for managing anxiety and triggering the parasympathetic response. This simple activity can help you feel calm by giving you a practical way to use your five senses to remind your brain that you are actually safe."
           },
         ];
         break;
@@ -141,8 +148,8 @@ class _ChatPageState extends State<ChatPage> {
         recommendations = [
           {
             'title': 'General Wellness',
-            'videoId': 'KlG13kkUvqQ',
-            'description': "Just a simple description."
+            'videoId': 'd8e4qjZwAE8',
+            'description': "Funny animals that will brighten all your day."
           },
         ];
     }
