@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../login/login_page.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -11,7 +12,6 @@ class ProfilePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 40),
-            // Profile Picture
             Container(
               width: 120,
               height: 120,
@@ -81,7 +81,10 @@ class ProfilePage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle logout
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFD00F00),
